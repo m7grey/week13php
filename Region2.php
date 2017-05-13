@@ -28,7 +28,7 @@ SELECT
   addressId,
   sum(salary) AS totalSalary
 FROM employees
-  WHERE addressId NOT in (3025,1001)
+  WHERE addressId NOT in (3025,1001,1002)
 GROUP BY addressId
 HAVING sum(salary) > 1000000;";
 
