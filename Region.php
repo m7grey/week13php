@@ -9,8 +9,6 @@
 </head>
 <body>
 
-</body>
-</html>
 <?php
 
 $servername = "localhost";
@@ -37,18 +35,22 @@ HAVING sum(salary) > 1000000;";
 echo $sql;
 
 $result = $conn->query($sql);
-echo '<hr>';
+echo '<ol>';
 
 if ($result->num_rows > 0) {
     // output data of each row
     while ($row = $result->fetch_assoc()) {
-        echo "address Id: " . $row["addressId"]
+        echo "<li>address Id: " . $row["addressId"]
             . " - Salary: "
             . $row["totalSalary"]
-            . "<br>";
+            . "</li>";
     }
 } else {
     echo "0 results";
 }
+echo '<ol>';
 $conn->close();
 ?>
+
+</body>
+</html>
