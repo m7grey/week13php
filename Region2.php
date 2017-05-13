@@ -10,6 +10,7 @@
 <body>
 
 <?php
+include "function-library.php";
 
 $servername = "localhost";
 $username = "root";
@@ -23,12 +24,16 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+
+$excludeID= getOption("excludeID", 0);
+
+
 $sql = "
 SELECT
   addressId,
   sum(salary) AS totalSalary
 FROM employees
-  WHERE addressId NOT in (3025,1001,1002)
+  WHERE addressId NOT in ($excludeID)
 GROUP BY addressId
 HAVING sum(salary) > 1000000;";
 
