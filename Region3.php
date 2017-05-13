@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <style>
         li.highlight {
-            color: green;
+            background-color: green;
         }
     </style>
     <title>Region</title>
@@ -52,7 +52,10 @@ echo '<ol>';
 if ($result->num_rows > 0) {
     // output data of each row
     while ($row = $result->fetch_assoc()) {
-        echo "<li class='highlight'>Address Id: " . $row["addressId"]
+        $salary = $row["totalSalary"];
+        $x = "";
+
+        echo "<li class='$x'>Address Id: " . $row["addressId"]
             . " - Salary: "
             . $row["totalSalary"]
             . "</li>";
