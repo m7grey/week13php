@@ -35,6 +35,8 @@ HAVING sum(salary) > 1000000;";
 echo $sql;
 
 $result = $conn->query($sql);
+
+echo "<h1> Region Report</h1>";
 echo '<ol>';
 
 if ($result->num_rows > 0) {
