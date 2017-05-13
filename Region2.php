@@ -25,15 +25,15 @@ if ($conn->connect_error) {
 }
 
 
-$excludeID= getOption("excludeID", 0);
-
+$excludeId= getOption("excludeId", 0);
+//http://week13:8888/region2.php?excludeId=1002
 
 $sql = "
 SELECT
   addressId,
   sum(salary) AS totalSalary
 FROM employees
-  WHERE addressId NOT in ($excludeID)
+  WHERE addressId NOT in ( $excludeId)
 GROUP BY addressId
 HAVING sum(salary) > 1000000;";
 
