@@ -40,7 +40,7 @@ SELECT
 FROM employees
   WHERE addressId NOT in ( $excludeId)
 GROUP BY addressId
-HAVING sum(salary) > 2000000;";
+HAVING sum(salary) > 1000000;";
 
 echo $sql;
 
@@ -52,8 +52,13 @@ echo '<ol>';
 if ($result->num_rows > 0) {
     // output data of each row
     while ($row = $result->fetch_assoc()) {
+
+        // add highlighting for results
         $salary = $row["totalSalary"];
         $x = "";
+        if ($salary > 2000000){
+            $x = "highlight";
+        }
 
         echo "<li class='$x'>Address Id: " . $row["addressId"]
             . " - Salary: "
